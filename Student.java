@@ -1,16 +1,18 @@
- package studentManagementSystemsrc;
+package studentManagementSystemsrc;
 
 import java.util.ArrayList;
 
 public class Student {
 
     private int id;
+    private int age;
     private String name;
     private ArrayList<Integer> marks;
 
-    public Student(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public Student(int id2, String name2, int age2) {
+        this.id = id2;
+        this.name = name2;
+        this.age = age2;
         marks = new ArrayList<>();
     }
 
@@ -20,6 +22,10 @@ public class Student {
 
     public String getName() {
         return name;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public boolean addMark(int mark) {
@@ -34,11 +40,14 @@ public class Student {
         if (marks.size() == 0) {
             return 0;
         }
-        int sum = 0;
+
+        int total = 0;
+
         for (int i = 0; i < marks.size(); i++) {
-            sum = sum + marks.get(i);
+            total = total + marks.get(i);
         }
-        double average = sum / (double) marks.size();
+
+        double average = total / (double) marks.size();
         return average;
     }
 
@@ -59,10 +68,11 @@ public class Student {
     }
 
     public void printDetails() {
-        System.out.println("ID: " + id);
-        System.out.println("Name: " + name);
-        System.out.println("Number of Marks: " + marks.size());
-        System.out.println("Average: " + calculateAverage());
-        System.out.println("Grade: " + calculateGrade());
+        System.out.println("Student ID   -> " + id);
+        System.out.println("Name         -> " + name);
+        System.out.println("Age          -> " + age);
+        System.out.println("Marks Count  -> " + marks.size());
+        System.out.println("Average      -> " + calculateAverage());
+        System.out.println("Final Grade  -> " + calculateGrade());
     }
 }
